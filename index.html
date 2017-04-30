@@ -1,1 +1,125 @@
-How to flexbox
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>How to flexbox</title>
+    </head>
+    <style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    nav {
+        flex: 0 1 12em;
+        order: -1;
+        font-size: 18px;
+    }
+    header {
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        display: flex;
+        font-size: 16px;
+        flex: 1;
+        padding: 0px 30px 0 15px;
+    }
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        padding: 10px;
+        border-right: 2px solid #2972e7;
+        background-color: ghostwhite;
+    }
+    .content {
+        flex: 1;
+        margin-left: 10px;
+    }
+    .nav-items {
+        margin-bottom: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #2972e7;
+    }
+    .nav-items:hover {
+        text-decoration: underline;
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+    li:last-of-type {
+        margin-bottom: 0;
+    }
+    .code-section {
+        background-color: ghostwhite;
+        border: 1px solid black;
+        padding: 10px;
+        margin-left: 40px;
+    }
+
+    </style>
+    <body>
+        <header>
+            <h1>How to Flexbox</h1>
+        </header>
+        <div class="container">
+            <main class="content">
+                <div id="how-to-basis">
+                    <h3>Terminology</h3>
+                    <ul>
+                        <li>Flex Container - Parent element (defined by the display property).</li>
+                        <li>Flex Child/Item - Every child of a Flex Container is a Flex Item.</li>
+                        <li>Main axis - The main axis of a flex container is the primary axis along which flex items are laid out. It is not necessarily horizontal (depends on the flex-direction property).</li>
+                        <li>Cross axis - The axis perpendicular to the main axis is called the cross axis. Its direction depends on the main axis direction.</li>
+                    </ul>
+                    <h3>Properties to be used on parent's containers</h3>
+                    <ul class="code-section">
+                        <li><b>display:</b> flex;</li>
+                        <li><b>flex-direction:</b> row (default) | row-reverse | column | column-reverse</li>
+                        <li><b>flex-wrap:</b> nowrap (default) | wrap | wrap-reverse</li>
+                        <li><b>justify-content:</b> flex-start (default) | flex-end | center | space-between | space-around</li>
+                        <li><b>align-items:</b> flex-start | flex-end | center | baseline | stretch (default)</li>
+                        <li><b>align-content:</b> flex-start | flex-end | center | space-between | space-around (default)</li>
+                    </ul>
+                    <ul>
+                        <li><b>display: flex;</b>- Just defines the context</li>
+                        <li><b>flex-direction</b> - Defines the direction of the flex items</li>
+                        <li><b>flex-wrap</b> - Defines if flex items will all try to fit onto one line</li>
+                        <li><b>justify-content</b> - Align flex items in the maix axis (ex: if direction is row it will align horizontally)</li>
+                        <li><b>align-items</b> - Align flex items in the cross axis (ex: if direction is row it will align vertically)</li>
+                        <li><b>align-content</b> - This aligns a flex container's lines within when there is extra space in the cross-axis</li>
+                    </ul>
+                    <h3>Properties to be used on children items</h3>
+                    <ul class="code-section">
+                        <li><b>order:</b> number (default -> source order)</li>
+                        <li><b>flex-grow:</b> number (default -> 0)</li>
+                        <li><b>flex-shrink:</b>  number (default -> 1)</li>
+                        <li><b>flex-basis:</b> length> | auto (default)</li>
+                        <li><b>flex:</b> 0 1 auto (default)</li>
+                        <li><b>align-self:</b> auto | flex-start | flex-end | center | baseline</li>
+                    </ul>
+                    <ul>
+                        <li><b>order:</b> - Controls the order in which item appear in the flex container</li>
+                        <li><b>flex-grow:</b> - This defines the ability for a flex item to grow if necessary</li>
+                        <li><b>flex-shrink:</b> - This defines the ability for a flex item to shrink if necessary</li>
+                        <li><b>flex-basis:</b> - This defines the default size of an element before the remaining space is distributed</li>
+                        <li><b>flex:</b> flex-grow, flex-shrink and flex-basis combined in this order</li>
+                        <li><b>align-self:</b> This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.</li>
+                    </ul>
+                </div>
+            </main>
+            <nav>
+                <div class="nav-container">
+                    <a href="#how-to-basis" class="nav-items">How to Flexbox - Basics</a>
+                    <a href="#grids" class="nav-items">Grids</a>
+                </div>
+            </nav>
+        </div>
+        <footer></footer>
+    </body>
+</html>
