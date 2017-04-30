@@ -9,6 +9,7 @@
         display: flex;
         min-height: 100vh;
         flex-direction: column;
+        color: #515151;
     }
     nav {
         flex: 0 1 12em;
@@ -18,6 +19,21 @@
     header {
         display: flex;
         justify-content: center;
+        color: black;
+    }
+    h3 {
+        margin-top: 30px;
+        color: black;
+    }
+    h2 {
+        color: #2972e7;
+        margin-top: 35px;
+    }
+    h3:first-of-type {
+        margin-top: 0;
+    }
+    .no-margin-top {
+        margin-top: 0;
     }
     .container {
         display: flex;
@@ -38,7 +54,7 @@
         margin-left: 10px;
     }
     .nav-items {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         cursor: pointer;
         text-decoration: none;
         color: #2972e7;
@@ -50,16 +66,32 @@
         list-style: none;
     }
     li {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
     li:last-of-type {
         margin-bottom: 0;
     }
     .code-section {
         background-color: ghostwhite;
-        border: 1px solid black;
         padding: 10px;
+        border-radius: 3px;
+    }
+    .margin-left-40 {
         margin-left: 40px;
+    }
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+        border: 1px solid #2972e7;
+    }
+    .grid-cell {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        margin: 0 10px;
+        padding: 10px;
+        background: hsla(31,15%,50%,.1);
     }
 
     </style>
@@ -70,6 +102,7 @@
         <div class="container">
             <main class="content">
                 <div id="how-to-basis">
+                    <h2 class="no-margin-top">How to Flexbox - Basics</h2>
                     <h3>Terminology</h3>
                     <ul>
                         <li>Flex Container - Parent element (defined by the display property).</li>
@@ -78,7 +111,7 @@
                         <li>Cross axis - The axis perpendicular to the main axis is called the cross axis. Its direction depends on the main axis direction.</li>
                     </ul>
                     <h3>Properties to be used on parent's containers</h3>
-                    <ul class="code-section">
+                    <ul class="code-section margin-left-40">
                         <li><b>display:</b> flex;</li>
                         <li><b>flex-direction:</b> row (default) | row-reverse | column | column-reverse</li>
                         <li><b>flex-wrap:</b> nowrap (default) | wrap | wrap-reverse</li>
@@ -95,7 +128,7 @@
                         <li><b>align-content</b> - This aligns a flex container's lines within when there is extra space in the cross-axis</li>
                     </ul>
                     <h3>Properties to be used on children items</h3>
-                    <ul class="code-section">
+                    <ul class="code-section margin-left-40">
                         <li><b>order:</b> number (default -> source order)</li>
                         <li><b>flex-grow:</b> number (default -> 0)</li>
                         <li><b>flex-shrink:</b>  number (default -> 1)</li>
@@ -112,11 +145,29 @@
                         <li><b>align-self:</b> This allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.</li>
                     </ul>
                 </div>
+                <div id="layout">
+                    <h2>Layout's</h2>
+                    <h3>Basic Grids</h3>
+                    <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They’re also equal height by default.</p>
+                    <div class="grid-container">
+                        <div class="grid-cell">
+                            1/2
+                        </div>
+                        <div class="grid-cell">
+                            1/2
+                        </div>
+                    </div>
+                    <pre class="code-section">
+                        &lt;div class="" >
+
+                        &lt;/div >
+                    </pre>
+                </div>
             </main>
             <nav>
                 <div class="nav-container">
                     <a href="#how-to-basis" class="nav-items">How to Flexbox - Basics</a>
-                    <a href="#grids" class="nav-items">Grids</a>
+                    <a href="#layout" class="nav-items">Layout's</a>
                 </div>
             </nav>
         </div>
