@@ -89,10 +89,25 @@
     }
     .grid-cell {
         text-align: center;
-        flex: 1;
         margin: 0 10px;
         padding: 10px;
         background: hsla(31,15%,50%,.1);
+    }
+
+    .flex-child {
+        flex: 1;
+    }
+
+    .fixed-half-child {
+        flex: 0 0 50%;
+    }
+
+    .fixed-third-child {
+        flex: 0 0 33%;
+    }
+
+    .flex-child3 {
+        flex: 3;
     }
 
     </style>
@@ -149,10 +164,13 @@
                 <div id="layout">
                     <h2>Layout's</h2>
                     <h3>Basic Grids</h3>
+
+                    <!-- Example 1 -->
+
                     <h4>Example 1:</h4>
                     <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They’re also equal height by default.</p>
                     <div class="grid-container">
-                        <div class="grid-cell">
+                        <div class="grid-cell flex-child">
                             <p>
                                 1/2
                             </p>
@@ -160,7 +178,7 @@
                                 ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
                             </p>
                         </div>
-                        <div class="grid-cell">
+                        <div class="grid-cell flex-child">
                             <p>
                                 1/2
                             </p>
@@ -170,7 +188,7 @@
                         </div>
                     </div>
                     <div class="grid-container">
-                        <div class="grid-cell">
+                        <div class="grid-cell flex-child">
                             <p>
                                 1/3
                             </p>
@@ -178,7 +196,7 @@
                                 ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
                             </p>
                         </div>
-                        <div class="grid-cell">
+                        <div class="grid-cell flex-child">
                             <p>
                                 1/3
                             </p>
@@ -186,7 +204,7 @@
                                 ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
                             </p>
                         </div>
-                        <div class="grid-cell">
+                        <div class="grid-cell flex-child">
                             <p>
                                 1/3
                             </p>
@@ -220,12 +238,116 @@
                             flex: 1;
                         }
                     </pre>
+
+
+                    <!-- Example 2 -->
+
+                    <h4>Example 2:</h4>
+                    <p>
+                        If you want that some div's have a fixed width and others to distribute space, just control this with flex property on the child divs.
+                    </p>
+                    <p>
+                        Just tell to the div that you don't want it to grow or shrink (flex-grow: 0, flex-shrink:0), and then just control the width with the flex-basis in pixels or percentage (Ex: flex-basis:50%).
+                    </p>
+                    <p>
+                        Use the shortand: flex: 0 0 50%;
+                    </p>
+                    <p>
+                        To other div's just use the flex-child class and let them distribute the space (flex:1). If you want 1 bigger then the other but not with a fixed width, just increase the flex-grow of that div (Ex: flex:3)
+                    </p>
+                    <p>
+                        <b>Note:</b> This flex:3 above don't mean the triple. <a href="#how-flex-grow-works">Check how flex-grow works</a>
+                    </p>
+                    <div class="grid-container">
+                        <div class="grid-cell fixed-half-child">
+                            <p>
+                                1/2 Fixed
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nes
+                                ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
+                            </p>
+                        </div>
+                        <div class="grid-cell flex-child">
+                            <p>
+                                auto
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nes
+                                ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
+                            </p>
+                        </div>
+                        <div class="grid-cell flex-child">
+                            <p>
+                                auto
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nes
+                                ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid-container">
+                        <div class="grid-cell fixed-third-child">
+                            <p>
+                                1/3 Fixed
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nes
+                                ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
+                            </p>
+                        </div>
+                        <div class="grid-cell flex-child3">
+                            <p>
+                                flex: 3
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nes
+                                ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
+                            </p>
+                        </div>
+                        <div class="grid-cell flex-child">
+                            <p>
+                                flex: 1
+                            </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, repellendus, nobis hic molestias eveniet perferendis nes
+                                ciunt voluptate ipsum impedit quo a veritatis porro qui commodi expedita? Nostrum enim sed ab.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3>Html</h3>
+                    <p>If you want to divide in equal parts just keep adding the div with the flex-child class inside the container</p>
+                    <p>Ex: If you want to divide in 2 sections just add inside the container 2 div's with flex-child class</p>
+                    <pre class="code-section">
+                        &lt;div class="container">
+                            &lt;div class="flex-child">
+                                    // 1st Div
+                                    // Write your Code here
+                            &lt;/div>
+                            &lt;div class="flex-child">
+                                // 2nd Div
+                                // Write your Code here
+                            &lt;/div >
+                        &lt;/div >
+                    </pre>
+                    <h3>Css</h3>
+                    <pre class="code-section">
+                        .container {
+                            display: flex;
+                        }
+
+                        .flex-child {
+                            flex: 1;
+                        }
+                    </pre>
+
+                </div>
+                <div id="how-flex-grow-works">
+                    <h2>How flex-grow and flex-shrink really works?</h2>
                 </div>
             </main>
             <nav>
                 <div class="nav-container">
                     <a href="#how-to-basis" class="nav-items">How to Flexbox - Basics</a>
                     <a href="#layout" class="nav-items">Layout's</a>
+                    <a href="#how-flex-grow-works" class="nav-items">How flex-grow/shrink</a>
                 </div>
             </nav>
         </div>
