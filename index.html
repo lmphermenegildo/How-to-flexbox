@@ -430,6 +430,29 @@
                 </div>
                 <div id="how-flex-grow-works">
                     <h2>How flex-grow and flex-shrink really works?</h2>
+                    <h3>Flex-grow/Flex-shrink</h3>
+                    <p>A flex container distributes free space to its items (proportionally to their flex grow factor) to fill the containers, or shrinks them (proportionally to their flex shrink factor) to prevent overflow.</p>
+                    <img src="sections.png" />
+                    <img src="growfactors.png"/>
+                    <img src="finalresultgrow.png"/>
+                    <h3>Example for flex-grow, flex-shrink works with the same principle</h3>
+                    <p> Was applied <b>flex-grow:2</b> on the <b>Section</b> div and <b>flex-grow:1</b> on the <b>Aside</b> div</p>
+                    <h3>Calculations</h3>
+                    <ul>
+                        <li>Container width: 300px</li>
+                        <li>Section width: 55px </li>
+                        <li>Aside width: 100px </li>
+                    </ul>
+                    <p>Calculate the remaining space: <b>300-55-100 = 145px</b></p>
+                    <p>Determine the value of one flex-grow factor, once we have 3 (2 + 1) the value of one flex-grow is approximately: <b>145/3 = 48px</b></p>
+                    <p>Finally the sliced up remaining space gets distributed between all elements based on their flex-grow value:</p>
+                    <ul>
+                        <li>Section width: 55 (initial width) + ( 2(flex-grow) * 48(value of each flex-grow) ) = <b>151px</b></li>
+                        <li>Aside width: 100 (initial width) + ( 1(flex-grow) * 48(value of each flex-grow) ) = <b>148px</b></li>
+                    </ul>
+
+                    <h3>Flex-basis</h3>
+                    <p>The initial main size of the flex item, before free space is distributed according to the flex factors.</p>
                 </div>
             </main>
             <nav>
